@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5 Exercises</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    .section-title { margin-top: 4rem; margin-bottom: 2rem; }
+    .custom-section { padding: 2rem; }
+    .custom-footer { height: 60px; background-color: #f8f9fa; }
+    .positioned-badge { position: absolute; top: 10px; right: 10px; }
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <!-- Exercise 1.1 -->
+  <section>
+    <h2 class="section-title">HTML with Bootstrap</h2>
+    <div class="alert alert-info">Bootstrap linked via CDN</div>
+  </section>
+
+  <!-- Exercise 1.2 -->
+  <section>
+    <h2 class="section-title">Bootstrap Setup</h2>
+    <p><code>bootstrap.min.css</code> and <code>bootstrap.bundle.min.js</code></p>
+  </section>
+
+  <!-- Exercise 2.1 -->
+  <section>
+    <h2 class="section-title">Bootstrap Folder Structure</h2>
+    <ul>
+      <li><strong>CSS</strong>: Contains compiled styles.</li>
+      <li><strong>JS</strong>: JavaScript plugins like modal, tooltip.</li>
+      <li><strong>Icons</strong>: SVG-based Bootstrap icons.</li>
+    </ul>
+  </section>
+
+  <!-- Exercise 2.2 -->
+  <section>
+    <h2 class="section-title">Bootstrap JS Plugin</h2>
+    <p><code>bootstrap.bundle.min.js</code> includes Popper for dropdowns/tooltips.</p>
+  </section>
+
+  <!-- Exercise 3.1 -->
+  <section>
+    <h2 class="section-title">Responsive Grid Layout</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 bg-light p-3">Column 1</div>
+        <div class="col-12 col-md-6 col-lg-4 bg-secondary text-white p-3">Column 2</div>
+        <div class="col-12 col-md-6 col-lg-4 bg-light p-3">Column 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 3.2 -->
+  <section>
+    <h2 class="section-title">Container, Row, Column</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col bg-success text-white p-3">Column A</div>
+        <div class="col bg-info text-white p-3">Column B</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 4.1 -->
+  <section>
+    <h2 class="section-title">Two-Column Layout</h2>
+    <div class="row">
+      <div class="col-md-3 bg-light p-3">Sidebar</div>
+      <div class="col-md-9 bg-white p-3">Content</div>
+    </div>
+  </section>
+
+  <!-- Exercise 4.2 -->
+  <section>
+    <h2 class="section-title">Four Equal Columns</h2>
+    <div class="row">
+      <div class="col-sm-3 bg-primary text-white p-2">1</div>
+      <div class="col-sm-3 bg-secondary text-white p-2">2</div>
+      <div class="col-sm-3 bg-success text-white p-2">3</div>
+      <div class="col-sm-3 bg-danger text-white p-2">4</div>
+    </div>
+  </section>
+
+  <!-- Exercise 5.1 -->
+  <section>
+    <h2 class="section-title">Centered Content</h2>
+    <div class="row justify-content-center align-items-center" style="height: 200px;">
+      <div class="col-4 bg-warning p-3 text-center">Centered</div>
+    </div>
+  </section>
+
+  <!-- Exercise 5.2 -->
+  <section>
+    <h2 class="section-title">Column Reordering</h2>
+    <div class="row">
+      <div class="col-md-6 order-md-2 bg-info text-white p-2">Second on medium+</div>
+      <div class="col-md-6 order-md-1 bg-dark text-white p-2">First on medium+</div>
+    </div>
+  </section>
+
+  <!-- Exercise 6.1 -->
+  <section>
+    <h2 class="section-title">Responsive Navbar with Flex</h2>
+    <nav class="d-flex flex-column flex-md-row bg-light p-3">
+      <a href="#" class="p-2 text-dark">Home</a>
+      <a href="#" class="p-2 text-dark">About</a>
+      <a href="#" class="p-2 text-dark">Contact</a>
+    </nav>
+  </section>
+
+  <!-- Exercise 6.2 -->
+  <section>
+    <h2 class="section-title">Card with Flex Alignment</h2>
+    <div class="card d-flex justify-content-between align-items-center p-3">
+      <span>Item</span>
+      <button class="btn btn-primary">Buy</button>
+    </div>
+  </section>
+
+  <!-- Exercise 7.1 -->
+  <section>
+    <h2 class="section-title">Typography Utilities</h2>
+    <h1 class="display-1">Display Heading</h1>
+    <p class="lead">This is a lead paragraph.</p>
+    <p class="text-muted">Muted text</p>
+    <p class="fw-bold">Bold text</p>
+  </section>
+
+  <!-- Exercise 7.2 -->
+  <section>
+    <h2 class="section-title">Text Transform</h2>
+    <p class="text-uppercase">uppercase text</p>
+    <p class="text-lowercase">LOWERCASE TEXT</p>
+    <p class="text-capitalize">capitalize each word</p>
+  </section>
+
+  <!-- Exercise 8.1 -->
+  <section>
+    <h2 class="section-title">Registration Form</h2>
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Name">
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="agree">
+          <label class="form-check-label" for="agree">Agree to terms</label>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+    </form>
+  </section>
+
+  <!-- Exercise 8.2 -->
+  <section>
+    <h2 class="section-title">Floating Login Form</h2>
+    <form>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+        <label for="floatingEmail">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+    </form>
+  </section>
+
+  <!-- Exercise 9.1 -->
+  <section>
+    <h2 class="section-title">Buttons</h2>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-outline-success">Outline</button>
+  </section>
+
+  <!-- Exercise 9.2 -->
+  <section>
+    <h2 class="section-title">Button Groups</h2>
+    <div class="btn-group" role="group">
+      <input type="checkbox" class="btn-check" id="btn1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btn1">Toggle 1</label>
+      <input type="checkbox" class="btn-check" id="btn2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btn2">Toggle 2</label>
+    </div>
+  </section>
+
+  <!-- Exercise 10.1 -->
+  <section>
+    <h2 class="section-title">Responsive Navbar</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- Exercise 10.2 -->
+  <section>
+    <h2 class="section-title">Tabs and Pills</h2>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Tab 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tab 2</a>
+      </li>
+    </ul>
+    <ul class="nav nav-pills mt-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Pill 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pill 2</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Exercise 11.1 -->
+  <section>
+    <h2 class="section-title">Profile Card</h2>
+    <div class="card" style="width: 18rem;">
+      <img src="https://via.placeholder.com/150" class="card-img-top" alt="Profile Image">
+      <div class="card-body">
+        <h5 class="card-title">John Doe</h5>
+        <p class="card-text">Web Developer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 11.2 -->
+  <section>
+    <h2 class="section-title">Media Object</h2>
+    <div class="d-flex">
+      <img src="https://via.placeholder.com/64" class="me-3" alt="Media Image">
+      <div>
+        <h5>Media heading</h5>
+        <p>Media content goes here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 12.1 -->
+  <section>
+    <h2 class="section-title">Spacing Utilities</h2>
+    <div class="m-3 p-2 bg-light">Margin 3, Padding 2</div>
+    <div class="mt-4 py-5 bg-info text-white">Top Margin 4, Vertical Padding 5</div>
+  </section>
+
+  <!-- Exercise 12.2 -->
+  <section>
+    <h2 class="section-title">Pricing Layout</h2>
+    <div class="row text-center">
+      <div class="col p-4 bg-light">Free</div>
+      <div class="col p-4 bg-secondary text-white">Pro</div>
+    </div>
+  </section>
+
+  <!-- Exercise 13.1 -->
+  <section class="custom-section bg-warning text-white">
+    <h2 class="section-title">Dashboard</h2>
+    <p class="text-primary">This is a warning section with primary colored text.</p>
+  </section>
+
+  <!-- Exercise 13.2 -->
+  <section class="custom-section bg-dark bg-gradient text-white">
+    <h2 class="section-title">Gradient Background</h2>
+    <p>This section uses a dark background with a gradient and white text.</p>
+  </section>
+
+  <!-- Exercise 14.1 -->
+  <section class="custom-section">
+    <h2 class="section-title">Display and Visibility</h2>
+    <div class="d-none d-md-block">Visible from medium devices and above (md+)</div>
+    <div class="d-lg-flex">Visible as flex on large devices and above (lg+)</div>
+  </section>
+
+  <!-- Exercise 14.2 -->
+  <aside class="d-none d-md-block bg-light p-3">
+    <h2 class="section-title">Responsive Sidebar</h2>
+    <p>This sidebar is visible only on tablets (md) and larger screens.</p>
+  </aside>
+
+  <!-- Exercise 15.1 -->
+  <div class="custom-section text-center">
+    <h2 class="section-title">Borders and Rounded Circle</h2>
+    <img src="https://via.placeholder.com/100" class="border border-primary border-3 rounded-circle" alt="Profile Image">
+  </div>
+
+  <!-- Exercise 15.2 -->
+  <div class="card shadow-lg rounded-pill m-3">
+    <div class="card-body">
+      <h2 class="section-title">Shadow and Rounded Pill</h2>
+      <p>This card has a large shadow and pill-shaped rounded corners.</p>
+    </div>
+  </div>
+
+  <!-- Exercise 16.1 -->
+  <footer class="position-fixed bottom-0 w-100 text-center custom-footer bg-light border-top">
+    <h2 class="section-title">Fixed Footer</h2>
+    <p>This footer stays fixed at the bottom of the viewport.</p>
+  </footer>
+
+  <!-- Exercise 16.2 -->
+  <div class="position-relative m-3">
+    <h2 class="section-title">Position Absolute Badge</h2>
+    <img src="https://via.placeholder.com/150" class="img-fluid" alt="Image with badge">
+    <span class="badge bg-danger positioned-badge">New</span>
+  </div>
+
+  <!-- Exercise 17.1 -->
+  <footer class="text-center p-3">
+    <h2 class="section-title">Social Media Icons</h2>
+    <a href="#" class="text-primary m-2"><i class="bi bi-facebook" aria-label="Facebook"></i></a>
+    <a href="#" class="text-info m-2"><i class="bi bi-twitter" aria-label="Twitter"></i></a>
+    <a href="#" class="text-danger m-2"><i class="bi bi-instagram" aria-label="Instagram"></i></a>
+  </footer>
+
+  <!-- Exercise 17.2 -->
+  <div class="text-center mb-4">
+    <h2 class="section-title">Icon-Only Buttons</h2>
+    <button class="btn btn-outline-primary" aria-label="Home"><i class="bi bi-house"></i></button>
+    <button class="btn btn-outline-success" aria-label="Check"><i class="bi bi-check-circle"></i></button>
+  </div>
+
+  <!-- Exercise 18.1 -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch Modal
+  </button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Exercise Modal Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This is a Bootstrap modal example.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 18.2 -->
+  <div class="accordion m-3" id="accordionExample">
+    <h2 class="section-title">Collapsible Accordion</h2>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Accordion Item #1
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          This is the first item's accordion body.
+        </div>
+    </body>
+</html>
