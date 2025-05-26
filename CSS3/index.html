@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Community Event Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <h1>Welcome to the Local Community Event Portal</h1>
+
+    <header id="mainHeader">
+        <h2>Upcoming Events</h2>
+        <nav>
+            <ul>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="events">
+        <article class="eventCard">
+            <h3>Spring Festival</h3>
+            <p>Celebrate the arrival of spring with food, music, and fun activities for all ages.</p>
+            <button class="cta-button">Register Now</button>
+        </article>
+
+        <article class="eventCard">
+            <h3>Community Clean-Up</h3>
+            <p>Join us in keeping our parks clean and green. Supplies provided.</p>
+            <button class="cta-button">Sign Up</button>
+        </article>
+    </section>
+
+    <section id="news" style="width: 90%; max-width: 800px; margin: 20px auto;">
+        <h2>Community Bulletin</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt suscipit felis, nec lacinia arcu vehicula a.</p>
+        <p>Curabitur non mi ut neque cursus facilisis. Duis imperdiet dapibus erat, nec vestibulum metus bibendum non.</p>
+    </section>
+
+    <section id="admin">
+        <h2>Events Administration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Registered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Spring Festival</td>
+                    <td>March 21</td>
+                    <td>Main Park</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Community Clean-Up</td>
+                    <td>April 10</td>
+                    <td>City Center</td>
+                    <td>75</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="contact" style="max-width: 400px; margin: 40px auto; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px;">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" placeholder="Your name" style="width: 100%; padding: 8px; margin-bottom: 15px;" /><br />
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" placeholder="Your email" style="width: 100%; padding: 8px; margin-bottom: 15px;" /><br />
+            <label for="message">Message:</label><br />
+            <textarea id="message" name="message" rows="4" style="width: 100%; padding: 8px; margin-bottom: 15px;" placeholder="Write your message here..."></textarea><br />
+            <button class="cta-button" type="submit">Send</button>
+        </form>
+    </section>
+
+    <section style="text-align:center; margin: 40px 0;">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Community Event" style="max-width: 600px; width: 100%; border-radius: 10px;" />
+    </section>
+
+</body>
+</html>
