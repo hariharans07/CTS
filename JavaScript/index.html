@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Event Portal</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .card { border: 1px solid #ccc; border-radius: 8px; padding: 10px; margin: 10px 0; }
+    .hidden { display: none; }
+    #loading { display: none; font-weight: bold; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Community Event Portal</h1>
+  <p id="welcomeText"></p>
+
+  <select id="categoryFilter">
+    <option value="">All Categories</option>
+    <option value="music">Music</option>
+    <option value="workshop">Workshop</option>
+  </select>
+  <input type="text" id="searchInput" placeholder="Search by name" />
+
+  <div id="eventsContainer"></div>
+  <div id="loading">Loading events...</div>
+
+  <h2>Register for an Event</h2>
+  <form id="registrationForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <select name="event" required></select>
+    <button type="submit" id="registerBtn">Register</button>
+    <div id="formMsg" class="error"></div>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    console.log("Welcome to the Community Portal");
+    window.onload = () => alert("Page fully loaded");
+
+    const events = [
+      { name: "Music Fiesta", date: "2025-06-10", seats: 3, category: "music" },
+      { name: "Workshop on Baking", date: "2025-06-05", seats: 0, category: "workshop" },
+      { name: "Rock Concert", date: "2025-06-20", seats: 5, category: "music" }
+    ];
+
+    function displayValidEvents() {
+      const now = new Date();
+      const container = document.getElementById("eventsContainer");
+      container.innerHTML = "";
+
+      events.forEach(event => {
+        const eventDate = new Date(event.date);
+        if (eventDate > now && event.seats > 0) {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <h3>${event.name}</h3>
+            <p>Date: ${event.date}</p>
+            <p>Seats: ${event.seats}</p>
+            <p>Category: ${event.category}</p>
+            <button onclick="register('${event.name}')">Register</button>
+          `;
+          container.appendChild(card);
+        }
+      });
+    }
+
+    function addEvent(event) {
+      events.push(event);
+    }
+
+    function registerUser (name, email, selectedEvent) {
+      try {
+        const event = events.find(e => e.name === selectedEvent);
+        if (event && event.seats > 0) {
+          event.seats--;
+          alert(`Registered ${name} for ${selectedEvent}`);
+          displayValidEvents();
+        } else throw "Event is full or not found.";
+      } catch (error) {
+        console.error("Registration error:", error);
+      }
+    }
+
+    const categoryRegistrations = (() => {
+      const count = {};
+      return (category) => {
+        count[category] = (count[category] || 0) + 1;
+        return count[category];
+      };
+    })();
+
+    function filterEventsByCategory(category, callback) {
+      const filtered = category ? events.filter(e => e.category === category) : events;
+      callback(filtered);
+    }
+
+    class Event {
+      constructor(name, date, seats) {
+        this.name = name;
+        this.date = date;
+        this.seats = seats;
+      }
+    }
+    Event.prototype.checkAvailability = function() {
+      return this.seats > 0;
+    };
+
+    function formatCards(eventsArray) {
+      return eventsArray.map(e => `${e.category.toUpperCase()}: ${e.name}`);
+    }
+
+    document.querySelector("#categoryFilter").addEventListener("change", e => {
+      const value = e.target.value;
+      filterEventsByCategory(value, (filtered) => {
+        displayValidEvents(filtered);
+      });
+    });
+
+    document.querySelector("#searchInput").addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        const query = e.target.value.toLowerCase();
+        const matched = events.filter(e => e.name.toLowerCase().includes(query));
+        const container = document.getElementById("eventsContainer");
+        container.innerHTML = "";
+        matched.forEach(event => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `<h3>${event.name}</h3><p>Date: ${event.date}</p>`;
+          container.appendChild(card);
+        });
+      }
+    });
+
+    async function fetchEvents() {
+      document.getElementById("loading").style.display = "block";
+      try {
+        const response = await new Promise(resolve =>
+          setTimeout(() => resolve({ json: () => events }), 1000)
+        );
+        const data = await response.json();
+        console.log("Fetched Events:", data);
+        displayValidEvents(data);
+        populateFormOptions(data);
+      } catch (e) {
+        console.error("Failed to load events");
+      } finally {
+        document.getElementById("loading").style.display = "none";
+      }
+    }
+
+    const cloneEvents = [...events];
+    const [{ name: firstName }] = cloneEvents;
+    console.log("First event name:", firstName);
+
+    function populateFormOptions(events) {
+      const select = document.querySelector("form select[name='event']");
+      select.innerHTML = "";
+      events.forEach(e => {
+        const option = document.createElement("option");
+        option.value = e.name;
+        option.text = e.name;
+        select.appendChild(option);
+      });
+    }
+
+    document.getElementById("registrationForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const eventName = form.event.value;
+
+      if (!name || !email || !eventName) {
+        document.getElementById("formMsg").innerText = "All fields required!";
+        return;
+      }
+
+      try {
+        const res = await new Promise(resolve =>
+          setTimeout(() => resolve({ status: 200 }), 1000)
+        );
+        if (res.status === 200) {
+          registerUser (name, email, eventName);
+          categoryRegistrations(events.find(e => e.name === eventName).category);
+          form.reset();
+          $("#formMsg").fadeOut();
+        }
+      } catch {
+        document.getElementById("formMsg").innerText = "Registration failed!";
+      }
+    });
+
+    console.log("Form ready, waiting for submit...");
+
+    $('#registerBtn').click(() => console.log("jQuery button click captured"));
+    $("#eventsContainer").fadeIn();
+
+    fetchEvents();
+  </script>
+</body>
+</html>
